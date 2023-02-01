@@ -1,0 +1,8 @@
+.shiny-btn {
+  background: #5a5a58;
+  padding: 5px 20px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px;
+}
