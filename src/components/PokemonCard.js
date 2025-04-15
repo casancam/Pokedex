@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// PokemonCard.jsx - Updated to include hover instructions
+import React, { useState, useEffect } from 'react';
 import './PokemonCard.css';
 import pokeball from '../images/pokeball.png';
 import Modal from './Modal';
@@ -16,6 +17,7 @@ function PokemonCard({
 }) {
   const [isShown, setIsShown] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [anyCardHovered, setAnyCardHovered] = useState(false);
 
   function modalHandler() {
     setModalIsOpen(true);
@@ -27,6 +29,25 @@ function PokemonCard({
 
   // Function to check if device is mobile
   const isMobile = () => window.innerWidth <= 768;
+
+  // Handle hover status to show/hide the instructions
+  const handleMouseEnter = () => {
+    if (!isMobile()) {
+      setIsShown(true);
+      setAnyCardHovered(true);
+      // Notify parent that a card is hovered (using custom event)
+      window.dispatchEvent(new CustomEvent('pokemonHoverChange', { detail: { hovered: true } }));
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile()) {
+      setIsShown(false);
+      setAnyCardHovered(false);
+      // Notify parent that card is no longer hovered
+      window.dispatchEvent(new CustomEvent('pokemonHoverChange', { detail: { hovered: false } }));
+    }
+  };
 
   return (
     <div className="container">
@@ -71,8 +92,8 @@ function PokemonCard({
       )}
       <div
         className="right"
-        onMouseEnter={() => !isMobile() && setIsShown(true)}
-        onMouseLeave={() => !isMobile() && setIsShown(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         onClick={modalHandler}
       >
         <img
