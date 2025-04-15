@@ -1,16 +1,20 @@
+/* Original CSS */
 .container {
   position: relative;
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
 }
+
 ::-webkit-scrollbar {
   width: 7px;
   background-color: #910305 !important;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: #fb7248 !important;
 }
+
 .right {
   display: flex;
   align-items: center;
@@ -21,17 +25,21 @@
   font-size: 24px;
   font-weight: 700;
 }
+
 .right:hover {
   background: linear-gradient(135deg, #f0501d 40%, black 40%);
   border-radius: 50px;
   cursor: pointer;
 }
+
 .right:hover > :nth-child(3) {
   color: white;
 }
+
 .right:hover > :nth-child(4) {
   filter: invert(1);
 }
+
 .show {
   position: fixed;
   display: flex;
@@ -44,10 +52,12 @@
   bottom: 10%;
   z-index: 2;
 }
+
 .show > img {
   filter: drop-shadow(2px 4px 12px black);
   max-width: 300px;
 }
+
 .stat-container-title {
   display: flex;
   align-items: center;
@@ -61,40 +71,50 @@
   border-radius: 5px;
   background: linear-gradient(135deg, #f0501d 40%, black 40%);
 }
+
 .img-title {
   width: 45px;
   max-height: 60px;
   margin-right: 10px;
 }
+
 .pokeball-title {
   width: 40px;
   margin-left: auto;
   filter: invert(1);
 }
-.stats-left,
-.stats-right {
+
+.stats-container {
+  display: flex;
+  width: 100%;
+}
+
+.stats-left, .stats-right {
   display: flex;
   flex-direction: column;
   width: 50%;
   font-size: 20px;
 }
-.stats-left > p,
-.stats-right > p {
+
+.stats-left > p, .stats-right > p {
   font-size: 20px;
   font-weight: 500;
   text-transform: capitalize;
   padding: 10px;
   border-bottom: 1px solid #90979f38;
 }
+
 .base-stats {
   display: flex;
   width: 100%;
   background: #ffffff;
 }
+
 .base-stats > div {
   text-align: center;
   width: 100%;
 }
+
 .stats {
   font-size: 20px;
   font-weight: 500;
@@ -103,7 +123,106 @@
   background: #5a5a58;
   color: white;
 }
-.stats:nth-child(1),
-.stats:nth-child(2) {
+
+.stats:nth-child(1), .stats:nth-child(2) {
   border-bottom: 1px solid white;
+}
+
+.pokemon-image {
+  max-height: 50px;
+  margin-right: 10px;
+  width: 50px;
+}
+
+.pokeball-image {
+  margin-left: auto;
+  width: 40px;
+}
+
+.pokemon-id {
+  width: 180px;
+  color: black;
+}
+
+.pokemon-id-text {
+  width: 270px;
+}
+
+.pokemon-name {
+  text-transform: capitalize;
+}
+
+/* Improved Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .container {
+    justify-content: center !important;
+    margin-right: 0 !important;
+    width: 100%;
+  }
+  
+  .right {
+    width: 90% !important;
+    margin: 10px auto !important;
+    max-width: 350px;
+    padding: 5px 15px;
+    font-size: 18px;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #f0f0f0 40%, #e0e0e0 40%);
+    transition: all 0.3s ease;
+  }
+  
+  /* Remove hover on mobile and make active state instead */
+  .right:hover {
+    background: linear-gradient(135deg, #f0501d 40%, black 40%);
+  }
+  
+  .right:active {
+    background: linear-gradient(135deg, #f0501d 40%, black 40%);
+  }
+  
+  .right:active > :nth-child(3) {
+    color: white;
+  }
+  
+  .right:active > :nth-child(4) {
+    filter: invert(1);
+  }
+  
+  /* Hide the hover card on mobile, rely on modal instead */
+  .show {
+    display: none !important;
+  }
+  
+  /* Adjust image sizes */
+  .right img:first-child {
+    max-height: 40px !important;
+    width: 40px !important;
+    margin-right: 5px !important;
+  }
+  
+  .right img:last-child {
+    width: 30px !important;
+  }
+  
+  /* Adjust text sizes */
+  .right p:nth-child(2) {
+    width: 100px !important;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .right p:nth-child(3) {
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+  }
+  
+  /* Ensure proper spacing */
+  .right {
+    justify-content: space-between;
+  }
 }

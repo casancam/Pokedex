@@ -14,7 +14,7 @@ function TopBar() {
               alt="pokeball"
               style={{ width: '30px', marginRight: '10px' }}
             />
-            <p>68</p>
+            <p>467</p>
           </div>
           <div className="seen">
             <img
@@ -22,11 +22,10 @@ function TopBar() {
               alt="pokeball"
               style={{ width: '30px', marginRight: '10px' }}
             />
-            <p>151</p>
+            <p>1302</p>
           </div>
         </div>
       </div>
-      <p style={{ color: 'white' }}>A -&gt; Z</p>
     </div>
   );
 }

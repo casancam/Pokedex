@@ -1,8 +1,92 @@
+/* Original button styles */
 .shiny-btn {
   background: #5a5a58;
   padding: 5px 20px;
   color: white;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px;
+  border: 1px solid transparent;
+}
+
+.shiny-btn:hover {
+  background: #4a4a48;
+}
+
+.shiny-btn:active {
+  transform: scale(0.95);
+}
+
+/* Modal Responsive Styles */
+@media screen and (max-width: 768px) {
+  /* Modal container */
+  .modal-container {
+    flex-direction: column !important;
+    padding: 15px !important;
+    overflow-y: auto;
+  }
+  
+  /* Close button */
+  .modal-close {
+    top: 20px !important;
+    right: 20px !important;
+    padding: 3px 8px !important;
+    font-size: 16px !important;
+  }
+  
+  /* Pokemon image */
+  .modal-container > div:first-of-type img {
+    max-width: 200px !important;
+    margin-top: 50px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  /* Stats container */
+  .modal-container > div:last-of-type {
+    width: 100% !important;
+    max-width: 350px !important;
+    height: auto !important;
+  }
+  
+  /* Title container */
+  .stat-container-title {
+    font-size: 18px !important;
+    height: 50px !important;
+    margin: 0 0 15px 0 !important;
+    padding: 0 10px !important;
+  }
+  
+  .img-title {
+    width: 35px !important;
+    max-height: 40px !important;
+  }
+  
+  .pokeball-title {
+    width: 30px !important;
+  }
+  
+  /* Stats sections */
+  .stats-left > p, .stats-right > p {
+    font-size: 16px !important;
+    padding: 8px !important;
+    line-height: 24px !important;
+  }
+  
+  .stats-left, .stats-right {
+    line-height: 30px !important;
+  }
+  
+  /* Base stats */
+  .stats {
+    font-size: 16px !important;
+    line-height: 40px !important;
+  }
+  
+  /* Shiny button */
+  .shiny-btn {
+    padding: 8px 20px !important;
+    font-size: 14px !important;
+    border-radius: 25px !important;
+    margin-top: 15px !important;
+    margin-bottom: 70px !important; /* Add space for the bottom bar */
+  }
 }

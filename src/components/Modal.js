@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import pokeball from '../images/pokeball.png';
 import bg from '../images/bg.jpg';
-import { useState } from 'react';
 import './Modal.css';
 
 function Modal({
@@ -23,8 +23,9 @@ function Modal({
 
   return (
     <div
+      className="modal-container"
       style={{
-        zIndex: '10',
+        zIndex: '1002',
         position: 'fixed',
         display: 'flex',
         top: '0',
@@ -39,6 +40,7 @@ function Modal({
       }}
     >
       <div
+        className="modal-close"
         onClick={onClick}
         style={{
           position: 'absolute',
@@ -50,6 +52,7 @@ function Modal({
           color: 'white',
           fontWeight: '900',
           cursor: 'pointer',
+          zIndex: '1003',
         }}
       >
         X
@@ -69,7 +72,7 @@ function Modal({
           />
         )}
       </div>
-
+      
       <div
         style={{
           display: 'flex',
@@ -86,7 +89,7 @@ function Modal({
           <p>{name}</p>
           <img src={pokeball} alt="pokeball" className="pokeball-title" />
         </div>
-
+        
         <div style={{ display: 'flex', width: '100%' }}>
           <div
             className="stats-left"
@@ -111,16 +114,16 @@ function Modal({
         </div>
         <div className="base-stats">
           <div>
-            {statsName.map((statsNames) => (
-              <p className="stats" style={{ lineHeight: '60px' }}>
-                {statsNames}
+            {statsName.map((statName, index) => (
+              <p className="stats" style={{ lineHeight: '60px' }} key={`modal-stat-name-${index}`}>
+                {statName}
               </p>
             ))}
           </div>
           <div>
-            {stats.map((stats) => (
-              <p className="stats" style={{ lineHeight: '60px' }}>
-                {stats}
+            {stats.map((stat, index) => (
+              <p className="stats" style={{ lineHeight: '60px' }} key={`modal-stat-value-${index}`}>
+                {stat}
               </p>
             ))}
           </div>

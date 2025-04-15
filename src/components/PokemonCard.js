@@ -15,19 +15,22 @@ function PokemonCard({
   statsName,
 }) {
   const [isShown, setIsShown] = useState(false);
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function modalHandler() {
     setModalIsOpen(true);
   }
+  
   function closeModalHandler() {
     setModalIsOpen(false);
   }
 
+  // Function to check if device is mobile
+  const isMobile = () => window.innerWidth <= 768;
+
   return (
     <div className="container">
-      {isShown && (
+      {isShown && !isMobile() && (
         <div className="show">
           <div className="stat-container-title">
             <img src={image} alt={name} className="img-title" />
@@ -36,7 +39,7 @@ function PokemonCard({
             <img src={pokeball} alt="pokeball" className="pokeball-title" />
           </div>
           <img src={image} alt={name} />
-
+          
           <div style={{ display: 'flex', width: '100%' }}>
             <div
               className="stats-left"
@@ -54,13 +57,13 @@ function PokemonCard({
           </div>
           <div className="base-stats">
             <div>
-              {statsName.map((stats) => (
-                <p className="stats">{stats}</p>
+              {statsName.map((stats, index) => (
+                <p className="stats" key={`stat-name-${index}`}>{stats}</p>
               ))}
             </div>
             <div>
-              {stats.map((stats) => (
-                <p className="stats">{stats}</p>
+              {stats.map((stat, index) => (
+                <p className="stats" key={`stat-value-${index}`}>{stat}</p>
               ))}
             </div>
           </div>
@@ -68,8 +71,8 @@ function PokemonCard({
       )}
       <div
         className="right"
-        onMouseEnter={() => setIsShown(true)}
-        onMouseLeave={() => setIsShown(false)}
+        onMouseEnter={() => !isMobile() && setIsShown(true)}
+        onMouseLeave={() => !isMobile() && setIsShown(false)}
         onClick={modalHandler}
       >
         <img

@@ -1,19 +1,109 @@
-
+/* Original Styles */
 .app-container {
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(
-      115deg,
-      #fff1ff 48%,
-      #f3533b 48% 55%,
-      #fb7248 55%
-    );
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    115deg,
+    #fff1ff 48%,
+    #f3533b 48% 55%,
+    #fb7248 55%
+  );
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative; /* Added positioning context */
+}
+
+.all-container {
+  height: calc(100vh - 140px);
+  position: relative;
+  top: 80px;
+  right: 30px;
+  overflow-y: scroll;
+  width: 100%;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align to left on desktop */
+}
+
+.button-container {
+  position: fixed;
+  bottom: 100px;
+  left: 50px;
+  display: flex;
+  padding: 10px;
+  background: transparent;
+  z-index: 1000;
+}
+
+.load-more {
+  padding: 12px 24px;
+  background-color: #3B4CCA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.load-more:hover {
+  background-color: #2A3BBB;
+}
+
+.button-container > div {
+  padding: 12px 24px;
+  color: #3B4CCA;
+  font-weight: bold;
+}
+
+/* Responsive PokeList Styles - Improved */
+@media screen and (max-width: 768px) {
+  .app-container {
+    height: auto;
+    min-height: 100vh;
   }
+  
   .all-container {
-    height: 86vh;
-    position: absolute;
-    top: 80px;
-    right: 30px;
-    overflow-y: scroll;
-    width: 100%;
+    position: relative;
+    top: 100px; /* Adjusted for the top bar */
+    right: 0;
+    height: auto;
+    min-height: calc(100vh - 200px); /* Adjusted height */
+    overflow-y: visible;
+    padding: 0 10px 80px; /* Add padding for spacing */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center pokemon cards on mobile */
   }
+
+  .button-container {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 80px; /* Add margin to separate from bottom bar */
+    padding: 0;
+  }
+
+  .load-more {
+    width: auto;
+    min-width: 200px;
+    max-width: 80%;
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+
+  .button-container > div {
+    padding: 15px 0;
+    text-align: center;
+  }
+}

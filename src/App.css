@@ -1,6 +1,51 @@
+/* Global Reset and Responsive Base Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  height: screen;
+}
+
+/* Responsive Typography */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px; /* Slightly reduce base font size on mobile */
+  }
+
+  body {
+    min-width: 320px; /* Prevent excessive shrinking on very small screens */
+  }
+}
+
+/* Ensure proper sizing for images and media */
+img, 
+video, 
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    touch-action: manipulation;
+  }
+
+  button, 
+  a, 
+  select, 
+  input[type="button"], 
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Prevent text overflow */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }

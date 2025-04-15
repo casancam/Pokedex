@@ -1,5 +1,6 @@
+/* Original Styles */
 .bottom {
-  position: absolute;
+  position: fixed; /* Changed from absolute to fixed */
   bottom: 0;
   height: 50px;
   width: 100%;
@@ -9,16 +10,48 @@
   align-items: center;
   gap: 30px;
   padding-right: 50px;
+  z-index: 1001; /* Ensure it stays on top */
 }
+
 .bottom-btn {
   display: flex;
   gap: 15px;
   color: white;
   cursor: pointer;
 }
+
 .bg-circle-white {
   border-radius: 50%;
   padding: 0 5px;
   background: white;
   color: black;
+}
+
+/* Responsive Bottom Bar Styles - Improved */
+@media screen and (max-width: 768px) {
+  .bottom {
+    height: auto;
+    padding: 8px 10px;
+    justify-content: space-around;
+    gap: 5px;
+  }
+
+  .bottom-btn {
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    padding: 0;
+  }
+
+  .bg-circle-white {
+    padding: 0 4px;
+    font-size: 9px;
+    margin-bottom: 2px;
+  }
+  
+  .bottom-btn p:not(.bg-circle-white) {
+    margin: 0;
+    font-size: 9px;
+  }
 }
